@@ -1,0 +1,81 @@
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+<!--   -->
+<nav>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="/"><i class="fas fa-home"></i> Inicio</a>
+    </li>
+
+    <!-- PRODUCCION -->
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+        aria-expanded="false"><i class="fas fa-address-card"></i> Alumnos</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/cPlaner"><i class="fas fa-plus"></i> Registrar</a> 
+        <a class="dropdown-item" href="/Planeacion"><i class="fas fa-search"></i> Buscar</a> 
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/Admin"><i class="fas fa-user-slash"></i> Bajas</a>
+      </div>
+    </li>
+
+    <!-- ALMACEN -->
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+        aria-expanded="false"><i class="fas fa-address-card"></i> Personal</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/cPlaner"><i class="fas fa-plus"></i> Registrar</a> 
+        <a class="dropdown-item" href="/Planeacion"><i class="fas fa-search"></i> Buscar</a> 
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/Admin"><i class="fas fa-user-slash"></i> Bajas</a>
+      </div>
+    </li>
+
+    <!-- Gaveta -->
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+        aria-expanded="false"><i class="fas fa-university"></i> Escolar</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/GavetaDespacho"><i class="fas fa-calendar-alt"></i> Ciclo escolar</a>
+        <a class="dropdown-item" href="/GavetaRetorno"><i class="fas fa-book"></i> Materias</a> 
+        <a class="dropdown-item" href="/GavetaDespacho"><i class="fas fa-spell-check"></i> Carreras</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/AdminGaveta"><i class="fas fa-history"></i> Historial</a>
+      </div>
+    </li> 
+  
+    <li class="nav-item">
+      <a class="nav-link" href="/#"><i class="fas fa-headset"></i>Soporte</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/#" tabindex="-1" aria-disabled="true"><i class="fas fa-laptop-code"></i>
+        Desarrollo</a>
+    </li>
+
+    <li class="nav-item" visibility: hidden>
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-bug"></i> Pruebas</a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link " href="/" tabindex="-1" aria-disabled="true"><i class="fas fa-sign-out-alt"></i> Salir</a>
+    </li>
+  </ul>
+</nav>
+
+<script>
+  var usuario = localStorage.getItem('usuario');
+  var Area = localStorage.getItem('Area');
+  var Nodo = document.getElementById("Area");
+  var newText = document.createTextNode(usuario + "-" + Area);
+ // Nodo.appendChild(newText);
+</script>
