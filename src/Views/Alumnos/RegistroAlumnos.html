@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+    GlλdoSys
+  </title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%- include ('../partials/head.html') %>
+    <!------incluir cabezera navegacion----->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <!-----------------------------------------------     FECHAS MOMENTS     ---------------------------------------------------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script type="text/javascript" src="js/Alumnos/RegistrarNuevo.js"></script> 
+</head>
+
+<body data-bs-theme="dark">
+  <%- include ('../partials/navegacion.html') %>
+    <!------incluir navegacion Menu-----> 
+
+
+ 
+
+    <div class="container-md shadow p-3   mb-5 bg-body-tertiary rounded">
+      <div class="card">
+        <div class="card-header">
+          Registro de alumno
+        </div>
+      
+        <div class="card-body">
+          <form class="row g-3" id="FormAlumno">
+            
+            <div class="col-md-4">
+              <label for="Nombres" class="form-label">Nombres</label>
+              <input type="text" class="form-control" id="Nombres" required value="Sergio">
+            </div>
+            <div class="col-md-4">
+              <label for="ApellidoP" class="form-label">Apellido Paterno</label>
+              <input type="text" class="form-control" id="ApellidoP" required value="Magaña">
+            </div>
+            <div class="col-md-4">
+              <label for="ApellidoM" class="form-label">Apellido Materno</label>
+              <input type="text" class="form-control" id="ApellidoM" required value="Gonzalez">
+            </div>
+
+            <div class="col-md-2">
+              <label for="Nacimiento" class="form-label">Fecha nacimiento</label>
+              <input required type="date" id="Nacimiento" class="form-control" name="Nacimiento">
+            </div>
+
+            <div class="col-md-2">
+              <label for="Sexo" class="form-label">Sexo</label>
+              <select id="Sexo" class="form-select">
+                <option value="-" selected disabled>Seleccionar...</option>
+                <option>Hombre</option>
+                <option>Mujer</option>
+              </select>
+            </div>
+
+            <div class="col-8">
+              <label for="CURP" class="form-label">CURP</label>
+              <input type="text" class="form-control" id="CURP" value="54ASD51515SDASD">
+            </div>  
+
+
+            <div class="col-12">
+              <label for="Direccion" class="form-label">Dirección</label>
+              <input type="text" class="form-control" id="Direccion" placeholder="Ej: Guadalupe, N.L. Colón 612" value="Guadalupe, N.L. Colón 612">
+            </div>
+            
+            <div class="col-md-2">
+              <label for="CP" class="form-label">C.P.</label>
+              <input type="text" class="form-control" id="CP" value="555563">
+            </div>
+
+            <div class="col-md-2">
+              <label for="Telefono" class="form-label">Telefono</label>
+              <input type="text" class="form-control" id="Telefono" value="8815135135">
+            </div>
+
+            <div class="col-md-2">
+              <label for="Celular" class="form-label">Celular</label>
+              <input type="text" class="form-control" id="Celular"  value="322362525">
+            </div>
+
+            <div class="col-md-6">
+              <label for="Correo" class="form-label">Correo</label>
+              <input type="text" class="form-control" id="Correo" value="sergio_lcc92@hotmail.com">
+            </div>
+
+            <hr>
+            <label class="label">
+              Documentos
+             </label>
+
+            <div class="col-md-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chkNacimiento" checked>
+                <label class="form-check-label" for="chkNacimiento">
+                 Acta de nacimiento
+                </label>
+              </div>
+            </div>
+            
+            <div class="col-md-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chkSecundaria" checked>
+                <label class="form-check-label" for="chkSecundaria">
+                  Certificado secundaria
+                </label>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chkDomicilio">
+                <label class="form-check-label" for="chkDomicilio">
+                  Comp. domicilio
+                </label>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chkCURP">
+                <label class="form-check-label" for="chkCURP">
+                  CURP
+                </label>
+              </div>
+            </div>
+
+            <hr>
+            <label class="label">
+              Contactos de emergencia
+             </label>
+            <div class="col-md-3">
+              <label for="Contacto" class="form-label">Nombre de contacto</label>
+              <input type="text" class="form-control" id="Contacto" value="papa">
+            </div>
+
+            <div class="col-md-4">
+              <label for="ContactoTelefono" class="form-label">Telefono</label>
+              <input type="text" class="form-control" id="ContactoTelefono" value="6666565115">
+            </div>
+
+            <div class="col-md-4">
+              <label for="ContactoCorreo" class="form-label">Correo</label>
+              <input type="text" class="form-control" id="ContactoCorreo" value="Correo@gssm.com">
+            </div>
+
+            
+            <div class="col-12 text-center">
+              <button type="button" class="btn btn-dark">Limpiar</button>
+              <button type="button" class="btn btn-success" onclick="RegistrarAlumno()">Guardar</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Modales -->
+    <!-- Modal registro exitoso -->
+    <div class="modal" tabindex="-1" id="ModalExito">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-primary">Confirmación</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="CerrarModal('ModalExito')"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-primary">Alumno registrado con exito.</p>
+          </div>
+          <div class="modal-footer"> 
+            <button type="button" class="btn btn-primary" onclick="CerrarModal('ModalExito')">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Modal registro exitoso -->
+    <div class="modal" tabindex="-1" id="ModalError">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-danger-emphasis">Error!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="CerrarModal('ModalExito')"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-danger-emphasis">Revisar llenado de datos.</p>
+          </div>
+          <div class="modal-footer"> 
+            <button type="button" class="btn btn-outline-danger" onclick="CerrarModal('ModalError')">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</body>

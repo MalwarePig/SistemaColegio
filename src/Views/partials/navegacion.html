@@ -9,19 +9,20 @@
 
 <!--   -->
 <nav>
-  <ul class="nav nav-tabs">
+  <ul class="nav nav-tabs shadow-sm p-3 mb-4 bg-body-tertiary rounded">
     <li class="nav-item">
-      <a class="nav-link active" href="/"><i class="fas fa-home"></i> Inicio</a>
+      <a class="nav-link active" href="/Home"><i class="fas fa-home"></i> GlλdoSys</a>
     </li>
 
-    <!-- PRODUCCION -->
+    <!-- Alumnos -->
 
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
         aria-expanded="false"><i class="fas fa-address-card"></i> Alumnos</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="/cPlaner"><i class="fas fa-plus"></i> Registrar</a> 
-        <a class="dropdown-item" href="/Planeacion"><i class="fas fa-search"></i> Buscar</a> 
+        <a class="dropdown-item" href="/RegistrarAlumnos"><i class="fas fa-plus"></i> Registrar</a>
+        <a class="dropdown-item" href="/AsignacionAlumnos"><i class="fas fa-user-tag"></i> Asignación</a>
+        <a class="dropdown-item" href="/BuscarAlumnado"><i class="fas fa-search"></i> Buscar</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="/Admin"><i class="fas fa-user-slash"></i> Bajas</a>
       </div>
@@ -33,8 +34,8 @@
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
         aria-expanded="false"><i class="fas fa-address-card"></i> Personal</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="/cPlaner"><i class="fas fa-plus"></i> Registrar</a> 
-        <a class="dropdown-item" href="/Planeacion"><i class="fas fa-search"></i> Buscar</a> 
+        <a class="dropdown-item" href="/cPlaner"><i class="fas fa-plus"></i> Registrar</a>
+        <a class="dropdown-item" href="/Planeacion"><i class="fas fa-search"></i> Buscar</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="/Admin"><i class="fas fa-user-slash"></i> Bajas</a>
       </div>
@@ -46,14 +47,14 @@
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
         aria-expanded="false"><i class="fas fa-university"></i> Escolar</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="/GavetaDespacho"><i class="fas fa-calendar-alt"></i> Ciclo escolar</a>
-        <a class="dropdown-item" href="/GavetaRetorno"><i class="fas fa-book"></i> Materias</a> 
-        <a class="dropdown-item" href="/GavetaDespacho"><i class="fas fa-spell-check"></i> Carreras</a>
+        <a class="dropdown-item" href="/#"><i class="fas fa-calendar-alt"></i> Ciclo escolar</a>
+        <a class="dropdown-item" href="/Materias"><i class="fas fa-book"></i> Materias</a>
+        <a class="dropdown-item" href="/#"><i class="fas fa-spell-check"></i> Carreras</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="/AdminGaveta"><i class="fas fa-history"></i> Historial</a>
+        <a class="dropdown-item" href="/#"><i class="fas fa-history"></i> Historial</a>
       </div>
-    </li> 
-  
+    </li>
+
     <li class="nav-item">
       <a class="nav-link" href="/#"><i class="fas fa-headset"></i>Soporte</a>
     </li>
@@ -65,7 +66,17 @@
 
     <li class="nav-item" visibility: hidden>
       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-bug"></i> Pruebas</a>
-    </li> 
+    </li>
+    <li>
+      <div class="form-check mt-2 form-switch  ">
+        <label class="form-check-label" for="lightSwitch">
+          <i class="fas fa-moon"></i>
+        </label>
+        <input class="form-check-input p-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
+          onclick="myFunction()" />
+      </div>
+    </li>
+
     <li class="nav-item">
       <a class="nav-link " href="/" tabindex="-1" aria-disabled="true"><i class="fas fa-sign-out-alt"></i> Salir</a>
     </li>
@@ -78,4 +89,23 @@
   var Nodo = document.getElementById("Area");
   var newText = document.createTextNode(usuario + "-" + Area);
  // Nodo.appendChild(newText);
+</script>
+
+<!-- DARK MODE -->
+<script>
+  function myFunction() {
+    var element = document.body;
+    element.dataset.bsTheme =
+      element.dataset.bsTheme == "light" ? "dark" : "light";
+  }
+
+ /*  function stepFunction(event) {
+    debugger;
+    var element = document.getElementsByClassName("collapse");
+    for (var i = 0; i < element.length; i++) {
+      if (element[i] !== event.target.ariaControls) {
+        element[i].classList.remove("show");
+      }
+    }
+  } */
 </script>

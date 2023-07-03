@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+    GlλdoSys
+  </title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%- include ('../partials/head.html') %>
+    <!------incluir cabezera navegacion----->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <!-----------------------------------------------     FECHAS MOMENTS     ---------------------------------------------------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script type="text/javascript" src="js/Alumnos/AsignacionAlumnos.js"></script>
+</head>
+
+<body data-bs-theme="dark">
+  <%- include ('../partials/navegacion.html') %>
+    <!------incluir navegacion Menu----->
+
+
+
+
+    <div class="container-md shadow p-3   mb-5 bg-body-tertiary rounded">
+      <div class="card">
+        <div class="card-header">
+          <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text">Buscar: </span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="Buscador" onchange="BuscarAlumno()" id="Buscador" value="Sergio">
+        </div>
+      </div>
+
+      <div class="card-body">
+        <table class="table table-striped table-hover table-dark table-bordered table-sm border-secundary text-center"
+          id="Tabla">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Lista</th>
+              <th scope="col">Matricula</th>
+              <th scope="col">Seleccionar</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+        <hr class="mt-5">
+        <!-- Formulario -->
+
+        <form class="row g-3" id="FormAlumno">
+
+          <div class="col-md-1" style="display: none">
+            <label for="id" class="form-label">id</label>
+            <input type="text" class="form-control" id="id" value="Sergio">
+          </div> 
+
+          <div class="col-md-4">
+            <label for="Nombres" class="form-label">Nombres</label>
+            <input type="text" class="form-control" id="Nombres" readonly>
+          </div> 
+          
+          <div class="col-md-2">
+            <label for="Lista" class="form-label">Lista</label>
+            <input type="text" class="form-control" id="Lista">
+          </div> 
+
+          <div class="col-md-2">
+            <label for="Matricula" class="form-label">Matricula</label>
+            <input type="text" class="form-control" id="Matricula">
+          </div> 
+ 
+          <div class="col-md-2">
+            <label for="Turno" class="form-label">Turno</label>
+            <select id="Turno" class="form-select">
+              <option value="-" selected disabled>Seleccionar...</option>
+              <option>Matutino</option>
+              <option>Vespertino</option>
+            </select> 
+          </div>
+
+          <div class="col-md-2">
+            <label for="Carrera" class="form-label">Carrera</label>
+            <select id="Carrera" class="form-select">
+              <option value="-" selected disabled>Seleccionar...</option>
+              <option>LCC</option>
+              <option>LSTI</option>
+              <option>LGBT</option>
+            </select>
+          </div>
+
+          <div class="col-12 text-center">
+            <button type="button" class="btn btn-dark" onclick="Limpiar()">Limpiar</button>
+            <button type="button" class="btn btn-success" onclick="AsignarAlumno()">Actualizar</button>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Modales -->
+    <!-- Modal registro exitoso -->
+    <div class="modal" tabindex="-1" id="ModalExito">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-primary">Confirmación</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+              onclick="CerrarModal('ModalExito')"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-primary">Alumno asignado con exito.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="CerrarModal('ModalExito')">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal registro exitoso -->
+    <div class="modal" tabindex="-1" id="ModalError">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-danger-emphasis">Error!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+              onclick="CerrarModal('ModalExito')"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-danger-emphasis">Revisar datos correctamente.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" onclick="CerrarModal('ModalError')">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>

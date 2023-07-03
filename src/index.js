@@ -72,7 +72,7 @@ app.use(express.static(path.join(__dirname, 'public')));//para archivos como ima
 
 //ERROR 404    
 app.use('*', function(req, res, next) {
-     res.status(404).render('Admin/Error.html');
+     res.status(404).render('Admin/Login.html');
    next();
 });
 
