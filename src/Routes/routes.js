@@ -65,11 +65,22 @@ router.get('/BuscarAlumnado', (req, res) => {
 router.post('/ActualizarAlumno', AlumnoController.ActualizarAlumno); 
 
 
-/********* ALUMNOS *********/
+/********* Escolar *********/
 //Abre pagina de materias
 router.get('/Materias', (req, res) => {
 	if (req.session.loggedin) {
 		res.render('Escolar/Materias/Materias.html', {
+			title: 'Gladosys'
+		});
+	} else {
+		res.render('Admin/Login.html');
+	}
+});
+
+//Abre pagina de materias
+router.get('/Dashboard', (req, res) => {
+	if (req.session.loggedin) {
+		res.render('Escolar/CicloEscolar/Dashboard.html', {
 			title: 'Gladosys'
 		});
 	} else {
