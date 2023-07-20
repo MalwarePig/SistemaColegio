@@ -90,5 +90,7 @@ function CerrarModal(params) {
     $('#'+params).modal('hide')
 }
 
-
+function LimpiarFormulario() {
+    document.getElementById("FormAlumno").reset();
+}
 

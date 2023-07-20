@@ -40,6 +40,7 @@ function CerrarModal(params) {
 
 function Limpiar() {
     document.getElementById("FormAlumno").reset();
+    document.getElementById("Buscador").value = '';
 }
 
 /**
@@ -100,6 +101,7 @@ function ActualizarAlumno() {
                 $("#ModalExito").modal();
                 setTimeout(() => {
                     document.getElementById("FormAlumno").reset();
+                    document.getElementById("Buscador").value = ""; 
                 }, 2000);
 
             } else {

@@ -1,0 +1,87 @@
+<div class="modal" id="ModalFull" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-modal="true"
+  role="dialog">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-primary" id="TiuloCicloActual">Ciclo escolar actual</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          onclick="CerrarModal('ModalFull')"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container-md shadow p-3   mb-5 bg-body-tertiary rounded">
+          <div class="card">
+            <div class="card-header">
+              <div class="row g-3">
+                <div class="col-auto">
+                  <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="ListaCarreras">
+                    <option selected disabled>Escoger carrera</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+                <div class="col-auto">
+                  <button class="btn btn-primary mb-3 btn-sm" onclick="CargarCarreraSeleccionada()">Añadir</button>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="card-body">
+
+              <div class="row g-4 text-center">
+                <!-- Tabla Carreras -->
+                <div class="col-sm-6 col-md-8">
+                  <table
+                    class="table table-striped table-hover table-dark table-bordered table-sm border-secundary text-center"
+                    id="TablaCarreras">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Clave</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Mostrar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                  </table>
+
+
+                </div>
+                <!-- Tabla maerias -->
+                <div class="col-6 col-md-4">
+                  <table
+                    class="table table-striped table-hover table-dark table-bordered table-sm border-secundary text-center"
+                    id="TablaGrados">
+                    <thead>
+                      <tr> 
+                        <th scope="col">Curso</th>
+                        <th scope="col">Activo</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+          onclick="CerrarModal('ModalFull')">Cerrrar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,10 +14,10 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <!-----------------------------------------------     FECHAS MOMENTS     ---------------------------------------------------------------->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <script type="text/javascript" src="js/Escolar/Materias/Materias.js"></script>
+    <script type="text/javascript" src="js/Escolar/CicloEscolar/CicloEscolar.js"></script>
 </head>
 
-<body data-bs-theme="dark" onload="CargarListaMaterias()">
+<body data-bs-theme="dark" onload="CargarListaCicloEscolar()">
   <%- include ('../../partials/navegacion.html') %>
     <!------incluir navegacion Menu----->
     <div class="container-md shadow p-3 mb-5 bg-body-tertiary rounded">
@@ -37,19 +37,17 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Clave</th>
-              <th scope="col">Nombre</th> 
-              <th scope="col">Estado</th> 
-              <th scope="col">Frecuencia</th>
-              <th scope="col">Fecha Creación</th>
+              <th scope="col">Fecha inicio</th>
+              <th scope="col">Fecha cierre</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Nota</th>
+              <th scope="col">Fecha creación</th>
             </tr>
           </thead>
           <tbody>
 
           </tbody>
-        </table>
-
-
-
+        </table>  
       </div>
     </div>
 
@@ -62,7 +60,12 @@
 
 
 
- 
+
+
+
+
+
+
 
 
     <!-- Modales -->
@@ -71,64 +74,48 @@
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-primary">NUEVA MATERIA</h5>
+            <h5 class="modal-title text-primary">NUEVO CICLO ESCOLAR</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
               onclick="CerrarModal('ModalFormulario')"></button>
           </div>
           <div class="modal-body">
-            <p class="text-primary">Llenar formulario</p>
+            <p class="text-primary">Configurar parametros</p>
 
-            <form class="row g-3" id="FormMateria"> 
+            <form class="row g-3" id="FormAlumno">
               <div class="col-md-12">
-                <label for="Clave" class="form-label">Clave</label>
-                <input required type="text" id="Clave" class="form-control" name="Clave">
+                <label for="Inicio" class="form-label">Fecha inicio</label>
+                <input required type="date" id="Inicio" class="form-control" name="Inicio">
               </div>
 
               <div class="col-md-12">
-                <label for="Nombre" class="form-label">Nombre</label>
-                <input required type="text" id="Nombre" class="form-control" name="Nombre">
+                <label for="Cierre" class="form-label">Fecha cierre</label>
+                <input required type="date" id="Cierre" class="form-control" name="Cierre">
               </div>
 
               <div class="col-md-12">
-                <label for="Frecuencia" class="form-label">Frecuencia</label>
-                <input required type="number" id="Frecuencia" class="form-control" name="Frecuencia">
-              </div> 
-
-              <div class="col-md-12">
-                <label for="Grado" class="form-label">Grado</label>
-                <select id="Grado" class="form-select">
+                <label for="Tipo" class="form-label">Tipo</label>
+                <select id="Tipo" class="form-select">
                   <option value="-" selected disabled>Seleccionar...</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
+                  <option>Semestral</option>
+                  <option>Tetramestral</option>
                 </select>
               </div>
 
               <div class="col-md-12">
-                <label for="Estado" class="form-label">Estado</label>
-                <select id="Estado" class="form-select">
-                  <option value="-" selected disabled>Seleccionar...</option>
-                  <option>Activado</option>
-                  <option>Desactivado</option>
-                </select>
+                <label for="Nota" class="form-label">Nota</label>
+                <input type="text" class="form-control" id="Nota" maxlength="50">
               </div>
- 
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick="RegistrarNuevaMateria()">Aceptar</button>
+            <button type="button" class="btn btn-primary" onclick="RegistrarNuevoCiclo()">Aceptar</button>
           </div>
         </div>
       </div>
     </div>
 
 
-    
+
 
     <!-- Modales -->
     <!-- Modal registro exitoso -->
@@ -137,12 +124,13 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title text-primary">Confirmación</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="CerrarModal('ModalExito')"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+              onclick="CerrarModal('ModalExito')"></button>
           </div>
           <div class="modal-body">
             <p class="text-primary">Se ha registrado un nuevo ciclo escolar con exito.</p>
           </div>
-          <div class="modal-footer"> 
+          <div class="modal-footer">
             <button type="button" class="btn btn-primary" onclick="CerrarModal('ModalExito')">Aceptar</button>
           </div>
         </div>
@@ -158,7 +146,7 @@
           <div class="modal-header">
             <h5 class="modal-title text-danger-emphasis">Error!</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-              onclick="CerrarModal('ModalExito')"></button>
+              onclick="CerrarModal('ModalError')"></button>
           </div>
           <div class="modal-body">
             <p class="text-danger-emphasis">Revisar datos correctamente.</p>
@@ -170,26 +158,6 @@
       </div>
     </div>
 
-
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <%- include ('../CicloEscolar/CicloActual.html') %>
 
 </body>

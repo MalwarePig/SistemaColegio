@@ -14,10 +14,10 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <!-----------------------------------------------     FECHAS MOMENTS     ---------------------------------------------------------------->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <script type="text/javascript" src="js/Escolar/Materias/Materias.js"></script>
+    <script type="text/javascript" src="js/Escolar/Carreras/Carreras.js"></script>
 </head>
 
-<body data-bs-theme="dark" onload="CargarListaMaterias()">
+<body data-bs-theme="dark" onload="CargarListaCarreras()">
   <%- include ('../../partials/navegacion.html') %>
     <!------incluir navegacion Menu----->
     <div class="container-md shadow p-3 mb-5 bg-body-tertiary rounded">
@@ -38,8 +38,7 @@
               <th scope="col">#</th>
               <th scope="col">Clave</th>
               <th scope="col">Nombre</th> 
-              <th scope="col">Estado</th> 
-              <th scope="col">Frecuencia</th>
+              <th scope="col">Estado</th>  
               <th scope="col">Fecha Creación</th>
             </tr>
           </thead>
@@ -62,7 +61,12 @@
 
 
 
- 
+
+
+
+
+
+
 
 
     <!-- Modales -->
@@ -71,14 +75,14 @@
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-primary">NUEVA MATERIA</h5>
+            <h5 class="modal-title text-primary">NUEVA CARRERA</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-              onclick="CerrarModal('ModalFormulario')"></button>
+              onclick="CerrarModal('ModalExito')"></button>
           </div>
           <div class="modal-body">
             <p class="text-primary">Llenar formulario</p>
 
-            <form class="row g-3" id="FormMateria"> 
+            <form class="row g-3" id="FormCarrera"> 
               <div class="col-md-12">
                 <label for="Clave" class="form-label">Clave</label>
                 <input required type="text" id="Clave" class="form-control" name="Clave">
@@ -87,27 +91,7 @@
               <div class="col-md-12">
                 <label for="Nombre" class="form-label">Nombre</label>
                 <input required type="text" id="Nombre" class="form-control" name="Nombre">
-              </div>
-
-              <div class="col-md-12">
-                <label for="Frecuencia" class="form-label">Frecuencia</label>
-                <input required type="number" id="Frecuencia" class="form-control" name="Frecuencia">
               </div> 
-
-              <div class="col-md-12">
-                <label for="Grado" class="form-label">Grado</label>
-                <select id="Grado" class="form-select">
-                  <option value="-" selected disabled>Seleccionar...</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                </select>
-              </div>
 
               <div class="col-md-12">
                 <label for="Estado" class="form-label">Estado</label>
@@ -121,7 +105,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick="RegistrarNuevaMateria()">Aceptar</button>
+            <button type="button" class="btn btn-primary" onclick="RegistrarNuevaCarrera()">Aceptar</button>
           </div>
         </div>
       </div>

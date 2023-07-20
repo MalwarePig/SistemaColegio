@@ -11,13 +11,20 @@
 <nav>
   <ul class="nav nav-tabs shadow-sm p-3 mb-4 bg-body-tertiary rounded">
     <li class="nav-item">
-      <a class="nav-link active" href="/Home"><i class="fas fa-home"></i> GlλdoS</a>
+      <a class="nav-link active" href="/Home"><i class="fas fa-home"></i> Inicio</a>
+    </li>
+
+     <!-- DashBoard -->
+  
+    <li class="nav-item">
+      <a class="nav-link active" href="/Dashboard" tabindex="-1" aria-disabled="true"><i class="fas fa-chart-line"></i>
+        DashBoard</a>
     </li>
 
     <!-- Alumnos -->
 
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+      <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
         aria-expanded="false"><i class="fas fa-address-card"></i> Alumnos</a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="/RegistrarAlumnos"><i class="fas fa-plus"></i> Registrar</a>
@@ -31,7 +38,7 @@
     <!-- ALMACEN -->
 
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+      <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
         aria-expanded="false"><i class="fas fa-address-card"></i> Personal</a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="/cPlaner"><i class="fas fa-plus"></i> Registrar</a>
@@ -44,33 +51,34 @@
     <!-- Gaveta -->
 
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+      <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
         aria-expanded="false"><i class="fas fa-university"></i> Escolar</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="/#"><i class="fas fa-calendar-alt"></i> Ciclo escolar</a>
+        <a class="dropdown-item" href="/CicloEscolar"><i class="fas fa-calendar-alt"></i> Ciclo escolar</a>
         <a class="dropdown-item" href="/Materias"><i class="fas fa-book"></i> Materias</a>
-        <a class="dropdown-item" href="/#"><i class="fas fa-spell-check"></i> Carreras</a>
-        <a class="dropdown-item" href="/Dashboard"><i class="fas fa-spell-check"></i> Dashboard</a>
+        <a class="dropdown-item" href="/Carreras"><i class="fas fa-spell-check"></i> Carreras</a>
+        <a class="dropdown-item" href="/Dashboard"><i class="fas fa-chart-line"></i> Dashboard</a> 
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="/#"><i class="fas fa-history"></i> Historial</a>
       </div>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="/#"><i class="fas fa-headset"></i>Soporte</a>
+      <a class="nav-link active" href="/#"><i class="fas fa-headset"></i>Soporte</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="/#" tabindex="-1" aria-disabled="true"><i class="fas fa-laptop-code"></i>
+      <a class="nav-link active" href="/CicloEscolar" tabindex="-1" aria-disabled="true"><i class="fas fa-laptop-code"></i>
         Desarrollo</a>
     </li>
 
     <li class="nav-item" visibility: hidden>
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-bug"></i> Pruebas</a>
+      <a class="nav-link disabled active" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-bug"></i> Pruebas</a>
     </li>
-    <li>
+
+    <li class="nav-item">
       <div class="form-check mt-2 form-switch  ">
-        <label class="form-check-label" for="lightSwitch">
+        <label class="form-check-labels" for="lightSwitch">
           <i class="fas fa-moon"></i>
         </label>
         <input class="form-check-input p-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
@@ -79,7 +87,7 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link " href="/" tabindex="-1" aria-disabled="true"><i class="fas fa-sign-out-alt"></i> Salir</a>
+      <a class="nav-link active" href="/" tabindex="-1" aria-disabled="true"><i class="fas fa-sign-out-alt"></i> Salir</a>
     </li>
   </ul>
 </nav>

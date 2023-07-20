@@ -1,155 +1,136 @@
-CREATE TABLE `materiales` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Folio` varchar(15) DEFAULT NULL,
-  `Producto` varchar(200) DEFAULT NULL,
-  `Cantidad` int(11) DEFAULT (0),
-  `Estado` varchar(50) DEFAULT NULL,
-  `OT` varchar(50) DEFAULT NULL,
-  `Empleado` varchar(50) DEFAULT NULL,
-  `Turno` varchar(3) DEFAULT NULL,
-  `Maquina` varchar(30) DEFAULT NULL,
-  `Comentarios` varchar(250) DEFAULT NULL,
-  `Movimiento` varchar(20) DEFAULT NULL,
-  `Usuario` varchar(20) DEFAULT NULL,
-  `Almacen` varchar(50) DEFAULT NULL,
-  `Salida` datetime DEFAULT (now()),
-  PRIMARY KEY (`id`)
-)
+  CREATE DATABASE
+    COLMERCANTIL;
 
-CREATE TABLE `materiales` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Folio` varchar(15) DEFAULT NULL,
+USE
+    COLMERCANTIL;
 
-  PRIMARY KEY (`id`)
-)
+/***********************************************************************/
+CREATE TABLE
+    usuarios (
+        id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        user VARCHAR(20),
+        pass VARCHAR(20)
+    );
 
+insert into
+    usuarios(user, pass)
+values
+    ('admin', 'admin');
 
-CREATE TABLE `requisiciones` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Clave` varchar(15) DEFAULT NULL,
-  `Producto` varchar(200) DEFAULT NULL,
-  `CantidadReq` int(11) DEFAULT (0),
-   `OT` varchar(10) DEFAULT NULL,
-  `Comentarios` varchar(250) DEFAULT NULL,
-  `EmpleadoReq` varchar(50) DEFAULT NULL,
-  `Planta` varchar(50) DEFAULT NULL,
-  `Estatus` varchar(20) DEFAULT NULL,
-    `FechaReq` datetime DEFAULT (CURDATE()),
-  PRIMARY KEY (`id`)
-)
+/***********************************************************************/
+CREATE TABLE
+    alumnos (
+        id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        Nombres VARCHAR(40) default null,
+        ApellidoP VARCHAR(20) default null,
+        ApellidoM VARCHAR(20) default null,
+        Nacimiento VARCHAR(30) default null,
+        Sexo VARCHAR(10) default null,
+        CURP VARCHAR(50) default null,
+        Direccion VARCHAR(100) default null,
+        CP VARCHAR(10) default null,
+        Telefono VARCHAR(15) default null,
+        Celular VARCHAR(15) default null,
+        Correo VARCHAR(50) default null,
+        chkNacimiento VARCHAR(15) default null,
+        chkSecundaria VARCHAR(15) default null,
+        chkDomicilio VARCHAR(15) default null,
+        chkCURP VARCHAR(15) default null,
+        Contacto VARCHAR(100) default null,
+        ContactoTelefono VARCHAR(15) default null,
+        ContactoCorreo VARCHAR(50) default null,
+        Matricula VARCHAR(50) default null,
+        Lista VARCHAR(50) default null,
+        Turno VARCHAR(50) default null,
+        Estado VARCHAR(15) default null,
+        Carrera VARCHAR(50) default null
+    );
 
+drop table
+    alumnos
+TRUNCATE table
+    alumnos
+select
+    *
+from
+    alumnos
+    /***********************************************************************/
+CREATE TABLE
+    CicloEscolar (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        Clave VARCHAR(20) default null,
+        Inicio DATE default null,
+        Cierre DATE default null,
+        Tipo VARCHAR(15) default null,
+        Nota VARCHAR(50) default null,
+        Creado datetime default (CURDATE()),
+        PRIMARY KEY (id)
+    );
 
-select * from requisiciones
+select
+    *
+from
+    CicloEscolar
+select
+    CURDATE()
+drop table
+    CicloEscolar
+/***********************************************************************/
+CREATE TABLE
+    Materias (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        Clave VARCHAR(20) default null,
+        Nombre VARCHAR(50) default null,
+        Estado VARCHAR(15) default null,
+        Frecuencia VARCHAR(15) default null,
+        Grado VARCHAR(15) default null,
+        FechaCreacion datetime default (CURDATE()),
+        PRIMARY KEY (id)
+    );
 
+drop table Materias
 
-CREATE TABLE `itemretorno` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Folio` varchar(15) DEFAULT NULL,
-  `Producto` varchar(200) DEFAULT NULL,
-  `Cantidad` int(11) DEFAULT (0),
-  `Estado` varchar(50) DEFAULT NULL,
-  `OT` varchar(50) DEFAULT NULL,
-  `Empleado` varchar(50) DEFAULT NULL,
-  `Turno` varchar(3) DEFAULT NULL,
-  `Maquina` varchar(30) DEFAULT NULL,
-  `Comentarios` varchar(250) DEFAULT NULL,
-  `Movimiento` varchar(20) DEFAULT NULL,
-  `Usuario` varchar(20) DEFAULT NULL,
-  `Almacen` varchar(50) DEFAULT NULL,
-  `Salida` datetime DEFAULT (now()),
-  PRIMARY KEY (`id`)
-)
+truncate table Materias;
 
-
-
-select * from folioalmacenRetorno
-select * from itemretorno
-
-select * from almacen
-select * from maquinas
-
-INSERT INTO maquinas(Nombre,Familia,)
-
-select * from itemprestado
-select * from itemprestado WHERE Maquina = 'DOOSAN NEW (24)' AND Devuelto < Entregado 
-
-
-call RestarAlmacen(5,'Producto_Prueba','Nuevo')
-
-CREATE TABLE `folioalmacenRetorno` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Folio` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
-
-select * from  folioalmacenRetorno
-
-
-
- + " - " + 
-
-
-
-DELIMITER //
-CREATE  PROCEDURE `RetornarAlmacen`(IN Cantidad int, IN ProductoARetornar varchar(200),IN Condicion varchar(20),IN Maquinas varchar(50))
-BEGIN
-SET SQL_SAFE_UPDATES = 0;
-SET @ActualNuevo := (SELECT Stock From almacen WHERE Producto = ProductoARetornar);
-SET @TotalNuevo := (@ActualNuevo + Cantidad);
-SET @ActualUsado := (SELECT StockUsado From almacen WHERE Producto = ProductoARetornar);
-SET @TotalUsado := (@ActualUsado + Cantidad);
-SET @ActualDevuelto := (SELECT Devuelto From itemprestado WHERE Producto = ProductoARetornar AND Maquina = Maquinas);
-SET @TotalDevuelto := (@ActualDevuelto + Cantidad);
-
-	IF (Condicion = 'Nuevo') 
-    THEN UPDATE almacen SET Stock = @TotalNuevo WHERE Producto = ProductoARetornar;
-    ELSE UPDATE almacen SET StockUsado = @TotalUsado WHERE Producto = ProductoARetornar;
-	END IF;
-    UPDATE itemprestado SET Devuelto = @TotalDevuelto WHERE Maquina = Maquinas;
-END
-
-
-select * from itemretorno
-select * from itemprestado
-call RetornarAlmacen(2,'Producto_Prueba','Nuevo','DOOSAN NEW (24)')
-
-select * from almacen
-select * from itemprestado
-select * from itemretorno
-
-DELIMITER //
-CREATE PROCEDURE `RestarAlmacen`(IN Cantidad int, IN ProductoARestar varchar(200),IN Condicion varchar(20))
-BEGIN
-SET SQL_SAFE_UPDATES = 0;
-SET @ActualNuevo := (SELECT Stock From almacen WHERE Producto = ProductoARestar);
-SET @TotalNuevo := (@ActualNuevo - Cantidad);
-SET @ActualUsado := (SELECT StockUsado From almacen WHERE Producto = ProductoARestar);
-SET @TotalUsado := (@ActualUsado - Cantidad);
-
-	IF (Condicion = 'Nuevo') THEN UPDATE almacen SET Stock = @TotalNuevo WHERE Producto = ProductoARestar;
-    ELSE UPDATE almacen SET StockUsado = @TotalUsado WHERE Producto = ProductoARestar;
-      END IF;
-END
-DELIMITER ;
-
-
- 
-SET SQL_SAFE_UPDATES = 0;
-/**********************************************************************************************************************************************************************************/
-DELIMITER //
-CREATE PROCEDURE IncrementarFolioRetornoAlmacen(in Nuevo varchar(20)
-)
-BEGIN
- INSERT INTO folioalmacenRetorno(Folio)values(Nuevo);
-END;
+select * from Materias
 
 
 
+    /***********************************************************************/
+CREATE TABLE
+    Carreras (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        Clave VARCHAR(20) default null,
+        Nombre VARCHAR(80) default null,
+        Estado VARCHAR(15) default null,
+        FechaCreacion datetime default (CURDATE()),
+        PRIMARY KEY (id)
+    );
 
------------------
+drop table Carreras
 
-select * from itemretorno
-select * from  itemprestado
+truncate table Materias;
 
+select * from Carreras
 
+    /***********************************************************************/
+CREATE TABLE
+    Grados (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        Clave VARCHAR(20) default null,
+        chkUno VARCHAR(15) default null,
+        chkDos VARCHAR(15) default null,
+        chkTres VARCHAR(15) default null,
+        chkCuatro VARCHAR(15) default null,
+        chkCinco VARCHAR(15) default null,
+        chkSeis VARCHAR(15) default null,
+        PRIMARY KEY (id)
+    );
+
+drop table Carreras
+
+truncate table Materias;
+
+select * from Carreras
+
+insert into Grados(clave,chkUno,chkTres,chkCinco)VALUES('Lcc','1','1','1')

@@ -87,6 +87,7 @@ function AsignarAlumno() {
                 $("#ModalExito").modal();
                 setTimeout(() => {
                     document.getElementById("FormAlumno").reset();
+                    document.getElementById("Buscador").value = '';
                 }, 2000);
             }
         });
