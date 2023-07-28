@@ -21,7 +21,7 @@ app.use(morgan('dev'));//muestra los mensajes en consola de las cargas y peticio
      //host: '192.168.2.8',
      host:'localhost',
      user: 'root',
-     password: 'admin', 
+     password: '1702861',
      port: 3306,
      database: 'COLMERCANTIL'
 },'single')) 
