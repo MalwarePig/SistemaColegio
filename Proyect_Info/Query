@@ -1,4 +1,4 @@
-  CREATE DATABASE
+CREATE DATABASE
     COLMERCANTIL;
 
 USE
@@ -134,3 +134,11 @@ truncate table Materias;
 select * from Carreras
 
 insert into Grados(clave,chkUno,chkTres,chkCinco)VALUES('Lcc','1','1','1')
+
+
+
+
+SELECT * FROM alumnos WHERE Nombres LIKE '%Sergio%' OR ApellidoP LIKE '%Sergio%' OR ApellidoM LIKE '%Sergio%' OR Lista = Sergio OR Matricula = Sergio
+
+
+
